@@ -1,24 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int checkPrime(int number);
+int checkTime(int hh, int mm);
 int main()
 {
-    int number;
-    printf("\nInput number to check: ");
-    scanf("%d", &number);
-    int check = checkPrime(number);
-    if(check){
+    int hh, mm, dauCach;
+    printf("\nInput time (hh mm) to check: ");
+    scanf("%d", &hh);
+    scanf("%c", &dauCach);
+    scanf("%d", &mm);
+    int h = checkTime(hh, mm);
+    if(h){
         printf("\nValid!");
     }else{
         printf("\nInvalid!");
     }
-    return 0;
 }
-int checkPrime(int number){
-    for(int i = 2; i <= number - 1; i++){
-        if(number % i == 0){
-            return 0;
-        }
-    }return number >= 2;
+int checkTime(int hh, int mm){
+    if(hh > 24 || hh < 0 || mm > 60 || mm < 0){
+        return 0;
+    }
+    return 1;
 }
